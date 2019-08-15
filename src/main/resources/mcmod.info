@@ -1,0 +1,16 @@
+[
+{
+  "modid": "nbtexaminer",
+  "name": "NBT Examiner",
+  "description": "Mod to view NBT tag information on any item",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Domur"],
+  "credits": "Domur",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
