@@ -7,3 +7,6 @@ NBT Examiner is a Forge mod for Minecraft that allows users to view hidden NBT t
 In game chat commands:  
 */nbtex* will display all tags found on the currently held item.  
 */nbtex &lt;tag name&gt;* will display the details for that specific tag.
+
+### To Do
+Format chat messages with color or create visual interface for easier viewing.
