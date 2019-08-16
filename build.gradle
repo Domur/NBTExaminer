@@ -12,8 +12,13 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 
 
 version = "1.0"
+<<<<<<< HEAD
 group = "nbtexaminer" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "nbtexaminer"
+=======
+group = "com.yourname.modid" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "modid"
+>>>>>>> fe2465a9c3dcf4cc5271c68f3ee7534256150efa
 
 sourceCompatibility = targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 compileJava {
