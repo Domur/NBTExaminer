@@ -9,4 +9,4 @@ In game chat commands:
 */nbtex &lt;tag name&gt;* will display the details for that specific tag.
 
 ### To Do
-Format chat messages with color or create visual interface for easier viewing.
+Potentially create a visual interface for easier viewing.

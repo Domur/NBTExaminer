@@ -5,6 +5,7 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.client.event.ClientChatEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
@@ -41,29 +42,36 @@ public class NBTExaminer
     		InventoryPlayer inventory = Minecraft.getMinecraft().player.inventory;
     		ItemStack itemStack = inventory.getCurrentItem();
     		
+    		TextComponentString text;
     		if(itemStack.hasTagCompound()) {
     			if(msgArgs.length == 1) {
-    				Minecraft.getMinecraft().player.sendMessage(new TextComponentString("Tags found for currently held item: " 
-    					+ itemStack.getTagCompound().getKeySet().toString()));
+    				text = new TextComponentString("Tag(s) found for currently held item: " 
+        					+ itemStack.getTagCompound().getKeySet().toString());
+    				text.getStyle().setColor(TextFormatting.GREEN);
     			}
     			else if(msgArgs.length == 2) {
 	    			NBTTagCompound nbt = itemStack.getTagCompound();
 	    			if(nbt.hasKey(msgArgs[1])) {
-		    			Minecraft.getMinecraft().player.sendMessage(new TextComponentString(msgArgs[1] + ": " 
-		    				+ nbt.getTag(msgArgs[1])));
+	    				text = new TextComponentString(msgArgs[1] + ": " 
+		    				+ nbt.getTag(msgArgs[1]));
+	    				text.getStyle().setColor(TextFormatting.YELLOW);
 	    			}
 	    			else {
-	    				Minecraft.getMinecraft().player.sendMessage(new TextComponentString("Tag not found on currently held item."));
+	    				text = new TextComponentString("Tag \"" + msgArgs[1] + "\" not found on currently held item.");
+	    				text.getStyle().setColor(TextFormatting.RED);
 	    			}
     			}
     			else {
-    				Minecraft.getMinecraft().player.sendMessage(new TextComponentString("Too many arguments given."));
+    				text = new TextComponentString("Too many arguments given.");
+    				text.getStyle().setColor(TextFormatting.RED);
     			}
     			
     		}
     		else {
-    			Minecraft.getMinecraft().player.sendMessage(new TextComponentString("No tags found for currently held item."));
+    			text = new TextComponentString("No tags found for currently held item.");
+    			text.getStyle().setColor(TextFormatting.RED);
     		}
+    		Minecraft.getMinecraft().player.sendMessage(text);
     	}
     }
 }
